@@ -448,6 +448,34 @@ require("lazy").setup({
       },
 
       {
+         "akinsho/toggleterm.nvim",
+         version = "*",
+         config = function()
+            require("toggleterm").setup({
+               -- CHANGED: Now using Ctrl + t to open/close the terminal
+               open_mapping = [[<c-t>]],
+
+               hide_numbers = true,
+               shade_terminals = true,
+               shading_factor = 2,
+               start_in_insert = true,
+               insert_mappings = true,
+               terminal_mappings = true,
+               direction = "float",
+               float_opts = {
+                  border = "curved",
+                  winblend = 3,
+                  title_pos = "center",
+               },
+            })
+
+            -- KEEP THESE AS THEY ARE (This is Neovim's internal code to exit terminal mode)
+            vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+            vim.keymap.set('t', 'jk', [[<C-\><C-n>]], { desc = "Exit terminal mode fast" })
+         end,
+      },
+
+      {
          "kylechui/nvim-surround",
          version = "*", -- Use for stability; omit to use `main` branch for the latest features
          event = "VeryLazy",

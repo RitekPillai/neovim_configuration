@@ -19,3 +19,11 @@ vim.keymap.set('n', '<leader>fg', ':Telescope live_grep<CR>', { desc = 'Telescop
 
 
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle File Explorer Sidebar" })
+
+
+-- Close current buffer/tab (the 'x' mark)
+vim.keymap.set("n", "<C-w>", "<cmd>bdelete<CR>", { desc = "Close tab/buffer" })
+
+-- Shift + H/L to cycle through open buffers/tabs
+vim.keymap.set("n", "<S-h>", "<cmd>bprevious<CR>", { desc = "Previous buffer tab" })
+vim.keymap.set("n", "<S-l>", "<cmd>bnext<CR>", { desc = "Next buffer tab" })
